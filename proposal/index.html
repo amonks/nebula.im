@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+    <link href="css/reset.css" rel="stylesheet" />
+    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="shortcut icon" href="css/favicon.png" />
+    <link rel="apple-touch-icon" href="css/apple-touch-icon.png" />
+    <!-- Code Prettifier: -->
+<link href="css/highlight.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="css/style.css" rel="stylesheet" />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,800italic,300,400,800' rel='stylesheet' type='text/css'>    
+
+
+  </head>
+
+  <body>
+  <div class="fallback-message">
+  <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+  <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+  </div>
+    <div id="impress">
+    <div class='step' >
+    
+<h1>New Media project proposal</h1>
+
+<p><a href="http://monks.co">Andrew Monks</a> // 10/18/13</p>
+</div>
+      <div class='step' >
+    
+<h2>Intro (the problem)</h2>
+
+<p>From museums to apartment galleries, Chicago is <strong>crammed</strong> full of venues for art.</p>
+
+<p>The problem is, it can be hard to know what&#39;s going on. The larger commercial galleries have the resources to publicize their events // openings, but many smaller apartment galleries only list their events on a facebook page or gallery website. With informal galleries popping up, it&#39;s nearly impossible to keep track of it all.</p>
+</div>
+      <div class='step' >
+    
+<h2>Events database! (the solution)</h2>
+
+<p>I want to make a public directory of art events in Chicago. There needs to be a single unified listing of small art events. This will benefit everyone: it&#39;ll be easier for patrons to discover shows / work, it&#39;ll be easier for artists to artists to keep track of a large and integrated community, and it&#39;ll be easier for galleries to get people in the door.</p>
+</div>
+      <div class='step' >
+    
+<h2>goals</h2>
+
+<p>I plan to accomplish this by creating and populating a database of events//galleries with a robust RESTful API. Think Songkick but for art.</p>
+
+<p>Once the database and API exist, I (or anyone else) will be able to develop apps to distribute // harness the data.</p>
+</div>
+      <div class='step' >
+    
+<h2>structure</h2>
+
+<p><img src="http://cl.ly/S0zA/IMG_2878.JPG" alt="Schematic Jawn" style="width: 80%;" /></p>
+</div>
+      <div class='step' >
+    
+<h2>steps (detail)</h2>
+
+<p>I&#39;ll develop three main software components:</p>
+
+<ol>
+<li><p>Framework: Database // API</p></li>
+<li><p>Input: Scrapers // Workers</p></li>
+<li><p>Output: Calendar app</p></li>
+</ol>
+
+<p>I don&#39;t want to get <em>too</em> pedantic, so I&#39;ll briefly outline my plans for execution.</p>
+</div>
+      <div class='step' >
+    
+<h2>db - PG (heroku)</h2>
+
+<p>My first step is to set up the database//schema itself. While I&#39;m tempted by a trendy nosql solution, I think the most economical move is to go with a free Postgres instance hosted by Heroku. Since (at least for now) I&#39;ll be the only person <em>writing</em> to the database, and my needs in terms of row count are pretty light, I don&#39;t anticipate reaching the limits of the free plan in the near future.</p>
+</div>
+      <div class='step' >
+    
+<h2>API - Sinatra//Rack (heroku)</h2>
+
+<p>I&#39;m going to write the API itself using Sinatra. I&#39;d take the opportunity to get more familiar with node.js, but since the huge majority of the effort required by this project will be in the data acquisition I&#39;d rather stick with a tool I can already execute quickly//reliably with and save myself some time.</p>
+</div>
+      <div class='step' >
+    
+<h2>Workers</h2>
+
+<p>Here&#39;s the fun part. I expect that almost all event data will exist in one of three formats:</p>
+
+<ul>
+<li><p>.ics</p></li>
+<li><p>FB events / page</p></li>
+<li><p>Unstructured data on gallery website / blog</p></li>
+</ul>
+
+<p>I&#39;ll write workers to gather data from all three. I&#39;ll start with .ics because even though it&#39;s probably the least common among galleries, the high degree of structure means a single parser will work unaltered for any gallery that uses the format. Facebook events will be a bit harder to generalize, so I&#39;ll do that next. Since I&#39;ll have to make a custom parser for each gallery, I&#39;ll deal with unstructured data last.</p>
+</div>
+      <div class='step' >
+    
+<h2>App // Calendar Output</h2>
+
+<p>Once the database is populated, I&#39;ll make a simple app to display the data in the browser. I doubt I&#39;ll get to it for this class, but at some point I might make a mobile app too. In the meantime I&#39;ll settle for a minimal responsive html jawn.</p>
+</div>
+      <div class='step' >
+    
+<h2>Admin app for gallerists/curators/artists</h2>
+
+<p>I&#39;d like to plan around the idea that this database could eventually be scaled outside chicago // nationally. Problem is, writing per-gallery parsers isn&#39;t really scalable without pretty major funding. If/when the database becomes popular, I might make another app that gallerists/curators/artists/etc can use to add their own crap to the database. </p>
+
+<p>I want to hold off until this is neccessary because first, opening up db-write access like that creates a plethora of potential headaches (fact checking, security, moderation), and second, because I don&#39;t really anticipate anyone going through effort to add data to an unused database…</p>
+</div>
+      <div class='step' >
+    
+<h2>Resources // docs</h2>
+
+<p>This is kinda a separate project, but I feel I should mention it. I&#39;d also like to create resources//documentation to help budding apartment gallerists set themselves up. I want to cull from my own personal experience having shows at my house, and put up some open docs about common pitfalls / advice / helpful shit. I feel like the calendar website might be a good place to put this.</p>
+</div>
+      <div class='step' >
+    
+<h2>Doc approach</h2>
+
+<p>I want to put together a December show at Greeenha.u$. I want to document the whole process of putting it together, opening up everything from the submission process to show logistics to art decisions, to hanging techniques. </p>
+</div>
+      <div class='step' >
+    
+<h2>Theme</h2>
+
+<p>I&#39;m not 100% concrete on this yet, but my initial thought is that the show should focus on networks. I&#39;d like to primarily inlclude art pieces that involve some kind of connectivity / networks in some way.</p>
+
+      </div>
+    <script src="js/impress.js"></script>
+    <script>impress().init();</script>
+  </body>
+</html>
+    
