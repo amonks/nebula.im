@@ -32,6 +32,26 @@ As part of an earlier incarnation of this project, I solicited a number of succe
 
 You already know I'm making a directory of events at artist-run and alternative spaces in Chicago. Here's how I'm doing it. Most of this is more-or-less directly copped from my project proposal, but here goes. 
 
+I want to make a public directory of art events in Chicago. There needs to be a single unified listing of small art events. This will benefit everyone: it'll be easier for patrons to discover shows / work, it'll be easier for artists to artists to keep track of a large and integrated community, and it'll be easier for galleries to get people in the door.
+
+I plan to accomplish this by creating and populating a database of events//galleries with a robust RESTful API. Think Songkick but for art.
+
+Once the database and API exist, I (or anyone else) will be able to develop apps to distribute // harness the data.
+
+###	structure
+
+<img src="http://cl.ly/S0zA/IMG_2878.JPG" alt="Schematic Jawn" style="width: 80%;" />
+
+I'll develop three main software components:
+
+1. 	Framework: Database // API
+
+2. 	Input: Scrapers // Workers
+
+3. 	Output: Calendar app
+
+I don't want to get *too* pedantic, so I'll briefly outline my plans for execution.
+
 ### Database
 
 My first step is to set up the database//schema itself. While I'm tempted by a trendy nosql solution, I think the most economical move is to go with a free Postgres instance hosted by Heroku. Since (at least for now) I'll be the only person *writing* to the database, and my needs in terms of row count are pretty light, I don't anticipate reaching the limits of the free plan in the near future.
