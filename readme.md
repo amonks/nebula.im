@@ -30,11 +30,11 @@ As part of an earlier incarnation of this project, I solicited a number of succe
 
 ## The solution
 
-You already know I'm making a directory of events at artist-run and alternative spaces in Chicago. Here's how I'm doing it. Most of this is more-or-less directly copped from my project proposal, but here goes. 
+You already know I'm making a directory of events at artist-run and alternative spaces in Chicago. Here's how I'm doing it. Most of this is more-or-less directly copped from my project proposal, but here goes. Section needs revision.
 
 I want to make a public directory of art events in Chicago. There needs to be a single unified listing of small art events. This will benefit everyone: it'll be easier for patrons to discover shows / work, it'll be easier for artists to artists to keep track of a large and integrated community, and it'll be easier for galleries to get people in the door.
 
-I plan to accomplish this by creating and populating a database of events//galleries with a robust RESTful API. Think Songkick but for art.
+I plan to accomplish this by creating and populating a database of events//galleries with a robust API. Think Songkick but for art.
 
 Once the database and API exist, I (or anyone else) will be able to develop apps to distribute // harness the data.
 
@@ -78,7 +78,9 @@ Once the database is populated, I'll make a simple app to display the data in th
 
 ### Admin app for gallerists/curators/artists
 
-I'd like to plan around the idea that this database could eventually be scaled outside chicago // nationally. Problem is, writing per-gallery parsers isn't really scalable without pretty major funding. If/when the database becomes popular, I might make another app that gallerists/curators/artists/etc can use to add their own crap to the database. 
+While most of the work at this point is going towards seeding the database with automated entry of some galleries' events, one of the main factors that distinguishes my directory from, for example, The Visualist, is that it's open. Anyone can add their own events to it. For this basic functionality to be accessible within the (mostly nontechnical) gallery scene, I need to make a simple webapp that exposes the API via HTML forms, so that people can easily add events / galleries to the database.
 
-I want to hold off until this is neccessary because first, opening up db-write access like that creates a plethora of potential headaches (fact checking, security, moderation), and second, because I don't really anticipate anyone going through effort to add data to an unused database…
 
+### Documentation
+
+Because the benefits of an API aren't immediately obvious, an important part of this project is documenting and explaining the API functionality. Eventually/ideally I'd like to document the entire system so it's possible for a nontechnical audience to follow how I built it. n00b-to-pro documentation of a large encompassing process like building a webapp + api is a huge task, so I'm not going to be able to have it ready by launch or maybe ever. I'm a huge proponent of internet literacy / pedagogy so I'd at least like to extremely-well-document the API functionality itself. Starting from basic address-bar GET stuff, but potentially moving into a no-nonsense description of REST and resources for starting to do pull API data into basic web development.
