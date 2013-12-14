@@ -1,8 +1,8 @@
-# Gallery Directory: New Media Project Paper
+# Gallery Directory
 
 by [Andrew Monks](http://monks.co)
 
-updated 12/5/13
+updated 12/14/13
 
 written on a Raspberry Pi
 
