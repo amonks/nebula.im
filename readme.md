@@ -76,6 +76,8 @@ I'll write workers to gather data from all three. I'll start with .ics because e
 
 Once the database is populated, I'll make a simple app to display the data in the browser. I doubt I'll get to it for this class, but at some point I might make a mobile app too. In the meantime I'll settle for a minimal responsive html jawn.
 
+I'll also generate iCalendar files per gallery so that people can subscribe to calendars.
+
 ### Admin app for gallerists/curators/artists
 
 While most of the work at this point is going towards seeding the database with automated entry of some galleries' events, one of the main factors that distinguishes my directory from, for example, The Visualist, is that it's open. Anyone can add their own events to it. For this basic functionality to be accessible within the (mostly nontechnical) gallery scene, I need to make a simple webapp that exposes the API via HTML forms, so that people can easily add events / galleries to the database.
